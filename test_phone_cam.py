@@ -1,6 +1,6 @@
 import cv2
 
-PHONE_URL = "http://192.168.253.199:4747/video"   
+PHONE_URL = "http://172.16.12.79:4747/video"   
 
 cap = cv2.VideoCapture(PHONE_URL)
 

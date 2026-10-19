@@ -30,7 +30,8 @@ class FrameBuffer:
     def add_signature(self, signature):
         self.signature_buffer.append(np.asarray(signature, dtype=np.float32))
 
-    def get_stable_signature(self):
-        if len(self.signature_buffer) == 0:
+    def get_stable_signature(self, min_samples=3):
+        """Returns the mean signature once at least min_samples have been accumulated."""
+        if len(self.signature_buffer) < min_samples:
             return None
         return np.mean(np.array(self.signature_buffer), axis=0)
